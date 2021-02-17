@@ -8,8 +8,8 @@ export class StudentService {
 
   constructor(private _httpClient: HttpClient) { }
 
-  get(): Observable<Student> {
-    return this._httpClient.get<Student>("http://localhost:3000/students");
+  get(): Observable<Student[]> {
+    return this._httpClient.get<Student[]>("http://localhost:3000/students");
   }
   
 }
