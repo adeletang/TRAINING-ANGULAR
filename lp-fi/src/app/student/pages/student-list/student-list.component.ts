@@ -11,6 +11,7 @@ import { StudentService } from 'src/app/core/services/http/student.service';
 export class StudentListComponent implements OnInit {
 
   students$: Observable<Student[]>;
+  displayedColumns: string[] = ["id", "firstName", "lastName", "birthYear", "class"];
 
   constructor(private _studentService: StudentService) { }
 
