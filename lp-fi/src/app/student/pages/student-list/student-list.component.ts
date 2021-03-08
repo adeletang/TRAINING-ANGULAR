@@ -19,4 +19,7 @@ export class StudentListComponent implements OnInit {
     this.students$= this._studentService.get();
   }
 
+  openDialog(){
+    console.log("open form");
+  }
 }
