@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Student } from 'src/app/core/models/student';
 
 @Component({
   selector: 'app-student-form',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentFormComponent implements OnInit {
 
-  constructor() { }
+  studentForm: FormGroup;
+
+  classes: string[] = [
+    "LP-DIM-FI",
+    "LP-DIM-APP"
+  ]
+
+  constructor(private fb: FormBuilder) { 
+    this.studentForm = this.fb.group({
+      firstName: [''],
+      lastName: [''],
+      birthYear: [''],
+      class: ['']
+    })
+
+  }
 
   ngOnInit(): void {
   }
 
+  onSubmit(student: Student){
+    console.log("FORM", student);
+  }
 }

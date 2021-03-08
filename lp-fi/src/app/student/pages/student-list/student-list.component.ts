@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { Student } from 'src/app/core/models/student';
 import { StudentService } from 'src/app/core/services/http/student.service';
+import { StudentFormComponent } from '../../components/student-form/student-form.component';
 
 @Component({
   selector: 'app-student-list',
@@ -13,7 +15,7 @@ export class StudentListComponent implements OnInit {
   students$: Observable<Student[]>;
   displayedColumns: string[] = ["id", "firstName", "lastName", "birthYear", "class"];
 
-  constructor(private _studentService: StudentService) { }
+  constructor(private _studentService: StudentService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.students$= this._studentService.get();
@@ -21,5 +23,11 @@ export class StudentListComponent implements OnInit {
 
   openDialog(){
     console.log("open form");
+
+    const dialogRef = this.dialog.open(StudentFormComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 }
