@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Student } from 'src/app/core/models/student';
+import { StudentService } from 'src/app/core/services/http/student.service';
 
 @Component({
   selector: 'app-student-form',
@@ -16,12 +18,12 @@ export class StudentFormComponent implements OnInit {
     "LP-DIM-APP"
   ]
 
-  constructor(private fb: FormBuilder) { 
+  constructor(private fb: FormBuilder, private _studentService: StudentService, private _dialogRef: MatDialogRef<StudentFormComponent>) { 
     this.studentForm = this.fb.group({
-      firstName: [''],
-      lastName: [''],
-      birthYear: [''],
-      class: ['']
+      firstName: ['', [Validators.required, this.noWhitespaceValidator]],
+      lastName: ['', [Validators.required, this.noWhitespaceValidator]],
+      birthYear: ['', [Validators.required]],
+      class: ['', [Validators.required]]
     })
 
   }
@@ -30,6 +32,19 @@ export class StudentFormComponent implements OnInit {
   }
 
   onSubmit(student: Student){
-    console.log("FORM", student);
+    if(this.studentForm.valid){
+      this._studentService.post(student).subscribe((next) =>{
+        console.log("test");
+        this.studentForm.reset();
+        this._dialogRef.close();
+      });
+    }
+  }
+
+  public noWhitespaceValidator(control: FormControl) {
+    const isWhitespace = (control.value || '').trim().length === 0;
+
+    const isValid = !isWhitespace;
+    return isValid ? null : { 'whitespace': true };
   }
 }

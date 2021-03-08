@@ -1,25 +1,65 @@
 {
-    "students": [
-        {
-            "id": 0,
-            "firstName": "",
-            "lastName": "",
-            "birthYear": 0,
-            "class": "LP-DIM-XXX"
-        },
-        {
-            "id": 1,
-            "firstName": "prenom",
-            "lastName": "nom",
-            "birthYear": 0,
-            "class": "LP-DIM-XXX"
-        },
-        {
-            "id": 2,
-            "firstName": "jean",
-            "lastName": "paul",
-            "birthYear": 0,
-            "class": "LP-DIM-XXX"
-        }
-    ]
+  "students": [
+    {
+      "id": 0,
+      "firstName": "",
+      "lastName": "",
+      "birthYear": 0,
+      "class": "LP-DIM-XXX"
+    },
+    {
+      "id": 1,
+      "firstName": "prenom",
+      "lastName": "nom",
+      "birthYear": 0,
+      "class": "LP-DIM-XXX"
+    },
+    {
+      "id": 2,
+      "firstName": "jean",
+      "lastName": "paul",
+      "birthYear": 0,
+      "class": "LP-DIM-XXX"
+    },
+    {
+      "firstName": "toto",
+      "lastName": "jack",
+      "birthYear": 1998,
+      "class": [
+        "LP-DIM-FI",
+        "LP-DIM-APP"
+      ],
+      "id": 3
+    },
+    {
+      "firstName": "toto",
+      "lastName": "test",
+      "birthYear": 2000,
+      "class": [
+        "LP-DIM-FI",
+        "LP-DIM-APP"
+      ],
+      "id": 4
+    },
+    {
+      "firstName": "jdznejkden",
+      "lastName": "ncdsnd",
+      "birthYear": 1999,
+      "class": [
+        "LP-DIM-FI",
+        "LP-DIM-APP"
+      ],
+      "id": 5
+    },
+    {
+      "firstName": "toto",
+      "lastName": "rararara",
+      "birthYear": 1989,
+      "class": [
+        "LP-DIM-FI",
+        "LP-DIM-APP"
+      ],
+      "id": 6
+    }
+  ]
 }

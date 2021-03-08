@@ -18,6 +18,10 @@ export class StudentListComponent implements OnInit {
   constructor(private _studentService: StudentService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
+    this.loadData();
+  }
+
+  loadData(): void{
     this.students$= this._studentService.get();
   }
 
@@ -28,6 +32,7 @@ export class StudentListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
+      this.loadData();
     });
   }
 }

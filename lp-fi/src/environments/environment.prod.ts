@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  StudentEndpoint: 'http://localhost:3000/students'
 };
